@@ -1,4 +1,4 @@
-package com.example.alquran.components
+package com.example.alquran.components.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,16 +18,12 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.alquran.DataState
 import com.example.alquran.Intent
-import com.example.alquran.client.RetrofitInstance
 import com.example.alquran.data.PrayerData
 import com.example.alquran.model.TimeViewModel
 import com.example.alquran.ui.theme.GrayLight
@@ -51,7 +47,11 @@ fun Home(navHostController: NavHostController) {
         Spacer(modifier = Modifier.height(40.dp))
         when (state) {
             is DataState.Loading -> CircularProgressIndicator()
-            is DataState.Success -> TimeContact((state as DataState.Success).message, navHostController)
+            is DataState.Success -> TimeContact(
+                (state as DataState.Success).message,
+                navHostController
+            )
+
             is DataState.Error -> Text("Error: ${(state as DataState.Error).error}")
             else -> {}
         }
@@ -59,6 +59,13 @@ fun Home(navHostController: NavHostController) {
         when (state) {
             is DataState.Loading -> CircularProgressIndicator()
             is DataState.Success -> PrayeTimes((state as DataState.Success).message)
+            is DataState.Error -> Text("Error: ${(state as DataState.Error).error}")
+            else -> {}
+        }
+        Spacer(modifier = Modifier.height(20.dp))
+        when (state) {
+            is DataState.Loading -> CircularProgressIndicator()
+            is DataState.Success -> CardImage((state as DataState.Success).message)
             is DataState.Error -> Text("Error: ${(state as DataState.Error).error}")
             else -> {}
         }
@@ -102,7 +109,7 @@ fun TimeContact(data: PrayerData, navHostController: NavHostController) {
                 textAlign = TextAlign.End
             )
             Text(
-                data.date.date_hijri.weekday.ar +","+ data.date.date_hijri.month.ar+","+ data.date.date_hijri.year,
+                data.date.date_hijri.weekday.ar + "," + data.date.date_hijri.month.ar + "," + data.date.date_hijri.year,
                 color = Color.Black,
                 fontSize = 22.sp,
                 modifier = Modifier.fillMaxWidth(), textAlign = TextAlign.End
