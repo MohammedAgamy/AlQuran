@@ -66,5 +66,14 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    //coil
+    implementation(libs.coil.compose)
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation("com.github.bumptech.glide:compose:1.0.0-alpha.1")
+    //datastore
+    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+
+
 
 }
