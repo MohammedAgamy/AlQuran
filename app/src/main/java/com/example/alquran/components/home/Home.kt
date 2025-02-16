@@ -69,6 +69,16 @@ fun Home(navHostController: NavHostController) {
             is DataState.Error -> Text("Error: ${(state as DataState.Error).error}")
             else -> {}
         }
+        Spacer(modifier = Modifier.height(20.dp))
+        MenuGrid { itemTitle ->
+            when (itemTitle) {
+                "أذكار الصلاة" -> navHostController.navigate("prayer_screen")
+                "التسبيح" -> navHostController.navigate("tasbeeh_screen")
+                "القران" -> navHostController.navigate("AlQuran")
+                "الفهرس" -> navHostController.navigate("Index")
+                // Add other screens
+            }
+        }
     }
 
 
