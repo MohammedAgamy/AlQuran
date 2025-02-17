@@ -39,7 +39,7 @@ fun MenuGrid(onItemClick: (String) -> Unit) {
         MenuItemHome(R.drawable.islam, "أذكار الصباح"),
         MenuItemHome(R.drawable.islam, "أذكار المساء"),
         MenuItemHome(R.drawable.islam, "جميع الأدعية"),
-        MenuItemHome(R.drawable.islam, "التسبيح"),
+        MenuItemHome(R.drawable.beads, "التسبيح"),
         MenuItemHome(R.drawable.islam, "التقويم الهجري"),
         MenuItemHome(R.drawable.quran, "القران"),
         MenuItemHome(R.drawable.quranindex, "الفهرس"),
