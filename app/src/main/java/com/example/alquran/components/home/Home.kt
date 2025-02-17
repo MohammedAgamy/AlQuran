@@ -73,7 +73,7 @@ fun Home(navHostController: NavHostController) {
         MenuGrid { itemTitle ->
             when (itemTitle) {
                 "أذكار الصلاة" -> navHostController.navigate("prayer_screen")
-                "التسبيح" -> navHostController.navigate("tasbeeh_screen")
+                "التسبيح" -> navHostController.navigate("Counter")
                 "القران" -> navHostController.navigate("AlQuran")
                 "الفهرس" -> navHostController.navigate("Index")
                 // Add other screens
