@@ -2,6 +2,8 @@ package com.example.alquran.client
 
 import com.example.alquran.data.Date
 import com.example.alquran.data.DateHijri
+import com.example.alquran.data.Dou.Dua
+import com.example.alquran.data.Dou.ProphetsDuas
 import com.example.alquran.data.PrayerData
 import com.example.alquran.data.datapages.QuranPages
 import com.example.alquran.data.surah.SurahData
@@ -19,4 +21,8 @@ interface ApiService {
 
     @GET("surahs")
     suspend fun getSurah(): Response<SurahData>
+
+
+    @GET("duas")
+    suspend fun getDouas(): Response<ProphetsDuas>
 }
